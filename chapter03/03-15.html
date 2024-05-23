@@ -38,6 +38,7 @@
         </thead>
         <tbody id="contacts">
           <!-- 여러 가지 요소를 한 번에 반복하고 싶을 때 template 태그로 묶어줌 -->
+          <!-- template의 경우 실제 DOM 요소에 추가되지는 않는다 -->
           <template v-for="(contact, index) in contacts" :key="contact.no">
             <tr>
               <td>{{contact.no}}</td>
