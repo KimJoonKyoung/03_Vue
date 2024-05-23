@@ -7,6 +7,8 @@
   </head>
   <body>
     <div id="app">
+      <!-- num을 양방향 바인딩해주고 입력값을 숫자로 변경 -->
+      <!-- 앞부분이 숫자일 경우만 숫자로 변경됨 -->
       <input type="text" v-model.number="num" /><br />
       입력된 수: <span>{{num}}</span>
     </div>
