@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Person(name, gender, age, address, job) {
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.address = address;
+        this.job = job;
+      }
+
+      let yura = new Person('yura', 'f', 15, 'sky', 'angel');
+
+      Person.prototype.printInfo = function () {
+        document.write(
+          this.name +
+            '의 성별은 ' +
+            this.gender +
+            '이며 ' +
+            this.age +
+            '세 입니다.' +
+            '<br>'
+        );
+        document.write(
+          '주소는 ' +
+            this.address +
+            '이며 직업은 ' +
+            this.job +
+            '입니다.' +
+            '<br>'
+        );
+      };
+      yura.printInfo();
+    </script>
+  </body>
+</html>
