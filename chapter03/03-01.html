@@ -11,16 +11,19 @@
       <h2 v-text="message"></h2>
       <h2 v-html="message"></h2>
     </div>
-
+    <!-- CDN 방식으로 뷰 가져오기 -->
     <script type="text/javascript" src="https://unpkg.com/vue"></script>
     <script type="text/javascript">
-      var model = { message: 'Hello Vue3!' };
-      var vm = Vue.createApp({
+      let model = { message: 'Hello Vue3!' };
+      let vm = Vue.createApp({
+        // createApp : vue에서 앱을 생성할 때 사용되는 메소드
+        // 설정 객체
         name: 'App',
+        // data는 proxy 객체
         data() {
           return model;
         },
-      }).mount('#app');
+      }).mount('#app'); // id가 app인 요소와 연결해줌
     </script>
   </body>
 </html>
