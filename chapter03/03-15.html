@@ -37,13 +37,16 @@
           </tr>
         </thead>
         <tbody id="contacts">
+          <!-- 여러 가지 요소를 한 번에 반복하고 싶을 때 template 태그로 묶어줌 -->
           <template v-for="(contact, index) in contacts" :key="contact.no">
             <tr>
               <td>{{contact.no}}</td>
               <td>{{contact.name}}</td>
               <td>{{contact.tel}}</td>
             </tr>
+            <!-- index가 4의 배수인 경우에만 divider 생성 -->
             <tr class="divider" v-if="index % 4 ===3">
+              <!-- colspan으로 칸 세 개 합쳐줌 -->
               <td colspan="3"></td>
             </tr>
           </template>
