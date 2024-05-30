@@ -5,7 +5,9 @@
       type="checkbox"
       :value="id"
       :checked="checked"
-      @change="$emit('check-changed', { id, checked: $event.target.checked })"
+      @change="
+        $emit('check-changed', { id: item.id, checked: $event.target.checked })
+      "
     />
     <slot :checked="item.checked" :label="item.label"></slot>
   </div>
