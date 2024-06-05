@@ -77,6 +77,7 @@ const updateTodoHandler = () => {
     return;
   }
   updateTodo({ ...todoItem }, () => {
+    // 업데이트한 후 전체 목록으로 돌아가기
     router.push('/todos');
   });
 };

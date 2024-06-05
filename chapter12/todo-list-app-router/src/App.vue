@@ -17,6 +17,8 @@ const states = reactive({ todoList: [] });
 
 const fetchTodoList = async () => {
   states.isLoading = true;
+  // try~ catch 문 : 예외 처리 구문
+  // try : 예외가 발생할 수 있는 문장을 넗는다.
   try {
     const response = await axios.get(BASEURI);
     if (response.status === 200) {
@@ -24,6 +26,7 @@ const fetchTodoList = async () => {
     } else {
       alert('데이터 조회 실패');
     }
+    // catch : 예외를 어떻게 처리할 지 적어둠
   } catch (error) {
     alert('에러발생 :' + error);
   }
@@ -85,11 +88,14 @@ const deleteTodo = async (id) => {
   states.isLoading = false;
 };
 
+// todo의 done을 true -> false, false -> true로 변경해주는 메소드
 const toggleDone = async (id) => {
   states.isLoading = true;
   try {
     let todo = states.todoList.find((todo) => todo.id === id);
+    // todo의 값을 그대로 가져오고 done 값만 반대로 변경해줌
     let payload = { ...todo, done: !todo.done };
+    // done이 변경됐으므로 해당 아이디의 todo를 업데이트 해줌
     const response = await axios.put(BASEURI + `/${id}`, payload);
     if (response.status === 200) {
       todo.done = payload.done;
